@@ -1,18 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IPopularMovies } from './movie.types'
+import { IMovie } from './movie.types'
 export interface MovieState {
-  popularMovies: IPopularMovies
+  popularMovies: IMovie[]
 }
 
 const initialState: MovieState = {
-  popularMovies: {
-    page: 0,
-    results: []
-  }
+  popularMovies: []
 }
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'movie',
   initialState,
   reducers: {
     SET_POPULAR_MOVIES: (state, action) => {

@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'BasementGrotesque';
+  src: url('../assets/fonts/BasementGrotesque-Black_v1.202.otf');
+}
+
+.logo-font {
+  font-family: 'BasementGrotesque', sans-serif;
+}
+
+.page-wrapper {
+  height: calc(100vh - 4rem);
+}
+
+/* Background image with black opacity */
