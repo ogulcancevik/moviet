@@ -1,9 +1,11 @@
-import { globalSelector } from '@/app/selectors'
+import { IMovie } from '@/app/modules/movie/movie.types'
 import React from 'react'
-import { useSelector } from 'react-redux'
 
-const CollectionCard: React.FC = () => {
-  const { collection } = useSelector(globalSelector)
+interface ICollectionCardProps {
+  collection: IMovie[]
+}
+const CollectionCard: React.FC<ICollectionCardProps> = (props) => {
+  const { collection } = props
   const redirectMovieDetail = (item: any) => {
     const { id } = item
     location.pathname = ''

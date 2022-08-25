@@ -26,6 +26,7 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
     "swiper": "^8.3.2",
+    "typewriter-effect": "^2.19.0",
     "usehooks-ts": "^2.6.0"
   },
   "devDependencies": {
