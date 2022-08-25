@@ -5,6 +5,7 @@ import Header from './components/shared/Header'
 import CollectionView from './views/CollectionView'
 import HomeView from './views/HomeView'
 import MovieDetailView from './views/MovieDetailView'
+import NotFoundView from './views/NotFoundView'
 const App: React.FC = () => {
   return (
       <>
@@ -14,6 +15,7 @@ const App: React.FC = () => {
           <Route path="/" element={<HomeView />} />
           <Route path="/movie/:movieId" element={<MovieDetailView />} />
           <Route path="/collection" element={<CollectionView />} />
+          <Route path="*" element={<NotFoundView />} />
         </Routes>
       </>
   )
