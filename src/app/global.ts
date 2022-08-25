@@ -1,6 +1,7 @@
-import { createSlice, current } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
+import { IMovie } from './modules/movie/movie.types'
 export interface GlobalState {
-  collection: any[]
+  collection: IMovie[] // TODO: fix this type.
 }
 
 const initialState: GlobalState = {
@@ -12,6 +13,7 @@ export const globalSlice = createSlice({
   initialState,
   reducers: {
     SET_COLLECTION: (state, action) => {
+      state.collection.push(action.payload)
     }
   }
 })

@@ -76,7 +76,7 @@ export const SliderContent = (props: SliderContentProps) => {
       <div className="absolute bg-black bg-opacity-60 w-screen h-full flex items-center swiper-shadow">
         <div className="text-white ml-32 w-2/4 md:w-full md:ml-0 md:text-center md:px-8">
           <div className="text-6xl md:text-4xl animate__animated animate__fadeInDown">
-            {item.original_title}
+            {item.title}
           </div>
           <div className="mt-4 text-sm animate__animated animate__fadeInDown">
             {item.overview}

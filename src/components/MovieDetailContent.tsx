@@ -1,17 +1,29 @@
 import { SET_COLLECTION } from '@/app/global'
 import { Genre } from '@/app/modules/movie/movie.types'
-import { movieSelector } from '@/app/selectors'
+import { globalSelector, movieSelector } from '@/app/selectors'
 import { useAppDispatch } from '@/app/store'
 import { IMG_PATH } from '@/services/baseUrls'
 import React, { useMemo } from 'react'
+import toast from 'react-hot-toast'
 import { useSelector } from 'react-redux'
 import { useWindowSize } from 'usehooks-ts'
 
 const DetailContent: React.FC = () => {
   const { movieDetail } = useSelector(movieSelector)
+  const { collection } = useSelector(globalSelector)
   const dispatch = useAppDispatch()
   const addCollection = () => {
-    dispatch(SET_COLLECTION(movieDetail))
+    const isExist = collection.map(m => m.id).includes(movieDetail.id)
+    if (isExist) {
+      toast.error('This movie is already in your collection', {
+        duration: 1750
+      })
+    } else {
+      dispatch(SET_COLLECTION(movieDetail))
+      toast.success('Movie added to your collection', {
+        duration: 1750
+      })
+    }
   }
   return (
     <div className="flex w-9/12">

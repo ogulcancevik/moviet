@@ -7,10 +7,15 @@ import { BrowserRouter } from 'react-router-dom'
 import 'swiper/css/bundle'
 import '@/styles/index.css'
 import 'animate.css'
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
+const persistor = persistStore(store)
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </BrowserRouter>
 )
