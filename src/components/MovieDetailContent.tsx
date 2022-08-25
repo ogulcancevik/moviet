@@ -1,4 +1,4 @@
-import { SET_COLLECTION } from '@/app/global'
+import { REMOVE_COLLECTION, SET_COLLECTION } from '@/app/global'
 import { Genre } from '@/app/modules/movie/movie.types'
 import { globalSelector, movieSelector } from '@/app/selectors'
 import { useAppDispatch } from '@/app/store'
@@ -11,11 +11,14 @@ import { useWindowSize } from 'usehooks-ts'
 const DetailContent: React.FC = () => {
   const { movieDetail } = useSelector(movieSelector)
   const { collection } = useSelector(globalSelector)
+  const isExist = useMemo(() => {
+    return collection.map(m => m.id).includes(movieDetail.id)
+  }, [collection, movieDetail.id])
   const dispatch = useAppDispatch()
   const addCollection = () => {
-    const isExist = collection.map(m => m.id).includes(movieDetail.id)
     if (isExist) {
-      toast.error('This movie is already in your collection', {
+      dispatch(REMOVE_COLLECTION(movieDetail.id))
+      toast.success('This movie removed your collection', {
         duration: 1750
       })
     } else {
@@ -37,8 +40,8 @@ const DetailContent: React.FC = () => {
           {movieDetail.overview}
         </div>
         <div className="flex justify-end">
-          <div onClick={addCollection} className="my-6 border border-white w-32 flex justify-center py-3 rounded-full hover:bg-custom-red hover:text-white transition-all cursor-pointer">
-            Add Collection
+          <div onClick={addCollection} className="my-6 border border-white px-4 flex justify-center py-3 rounded-full hover:bg-custom-red hover:text-white transition-all cursor-pointer">
+            {!isExist ? 'Add Collection' : 'Remove Collection'}
           </div>
         </div>
         <DetailCast />

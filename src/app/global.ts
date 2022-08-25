@@ -14,8 +14,11 @@ export const globalSlice = createSlice({
   reducers: {
     SET_COLLECTION: (state, action) => {
       state.collection.push(action.payload)
+    },
+    REMOVE_COLLECTION: (state, action) => {
+      state.collection = state.collection.filter((item) => item.id !== action.payload)
     }
   }
 })
-export const { SET_COLLECTION } = globalSlice.actions
+export const { SET_COLLECTION, REMOVE_COLLECTION } = globalSlice.actions
 export default globalSlice.reducer

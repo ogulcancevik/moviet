@@ -6,7 +6,7 @@
   src: url('../assets/fonts/BasementGrotesque-Black_v1.202.otf');
 }
 body {
-  background-color: black;
+  background-color: rgb(20, 20, 20);
   color: white;
 }
 .logo-font {
