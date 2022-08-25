@@ -6,7 +6,7 @@ const MovieTrailer: React.FC = () => {
   const { movieTrailerInfo } = useSelector(movieSelector)
   const [trailerLink, setTrailerLink] = useState<string>('')
   const trailer = useMemo(() => {
-    return movieTrailerInfo.filter((m) => m.type === 'Trailer')[0].key
+    return movieTrailerInfo.filter((m) => m.type === 'Trailer')[0]?.key
   }, [movieTrailerInfo])
   useEffect(() => {
     setTrailerLink(`https://www.youtube.com/embed/${trailer}?autoplay=1`)
