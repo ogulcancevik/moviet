@@ -12,11 +12,11 @@ const CollectionCard: React.FC<ICollectionCardProps> = (props) => {
     window.location.href = `/movie/${id}`
   }
   return (
-    <div className="grid grid-cols-5 mt-5">
+    <div className="grid grid-cols-6 mt-5">
       {collection.map((movie) => {
         return (
           <div
-            className="flex flex-col justify-center items-center mb-5 animate__animated animate__fadeInDown  cursor-pointer"
+            className="flex flex-col justify-center items-center mb-5 animate__animated animate__zoomIn  cursor-pointer"
             key={movie.id}
             onClick={() => redirectMovieDetail(movie)}
           >

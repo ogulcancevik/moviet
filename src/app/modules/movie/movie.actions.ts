@@ -1,6 +1,6 @@
 import { AppDispatch } from '@/app/store'
 import { movieService } from '@/services/movie.service'
-import { SET_MOVIE_CREDITS, SET_MOVIE_DETAIL, SET_MOVIE_TRAILER_INFO, SET_POPULAR_MOVIES, SET_SIMILAR_MOVIES, SET_TOP_RATED_MOVIES } from './movie'
+import { SET_MOVIE_CREDITS, SET_MOVIE_DETAIL, SET_MOVIE_TRAILER_INFO, SET_POPULAR_MOVIES, SET_SEARCHED_MOVIES, SET_SIMILAR_MOVIES, SET_TOP_RATED_MOVIES } from './movie'
 
 export const getPopularMovies = () => async (dispatch: AppDispatch) => {
   const { results } = await movieService.fetchPopularMovies()
@@ -36,4 +36,13 @@ export const getMovieDetail = (movieId : number) => async (dispatch: any) => {
   await dispatch(getMovieCredits(movieId))
   await dispatch(getMovieTrailerInfo(movieId))
   await dispatch(getSimilarMovies(movieId))
+}
+
+export const getSearchedMovies = (query : string) => async (dispatch: AppDispatch) => {
+  const results = await movieService.fetchSearchedMovie(query)
+  if (!results.length) {
+    console.log('film yok aq')
+    return
+  }
+  dispatch(SET_SEARCHED_MOVIES(results))
 }

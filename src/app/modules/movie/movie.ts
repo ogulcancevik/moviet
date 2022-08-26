@@ -1,12 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IMovie, IMovieCredits, IMovieDetail, IMovieTrailerInfo } from './movie.types'
+import {
+  IMovie,
+  IMovieCredits,
+  IMovieDetail,
+  IMovieTrailerInfo
+} from './movie.types'
 export interface MovieState {
-  popularMovies: IMovie[],
-  topRatedMovies: IMovie[],
-  movieTrailerInfo: IMovieTrailerInfo[],
-  movieDetail: IMovieDetail,
-  movieCredits: IMovieCredits,
-  similarMovies: IMovie[]
+  popularMovies: IMovie[];
+  topRatedMovies: IMovie[];
+  movieTrailerInfo: IMovieTrailerInfo[];
+  movieDetail: IMovieDetail;
+  movieCredits: IMovieCredits;
+  similarMovies: IMovie[];
+  searchedMovies: IMovie[];
 }
 
 const initialState: MovieState = {
@@ -15,7 +21,8 @@ const initialState: MovieState = {
   movieTrailerInfo: [],
   movieDetail: {} as IMovieDetail,
   movieCredits: {} as IMovieCredits,
-  similarMovies: []
+  similarMovies: [],
+  searchedMovies: []
 }
 
 export const movieSlice = createSlice({
@@ -39,9 +46,20 @@ export const movieSlice = createSlice({
     },
     SET_SIMILAR_MOVIES: (state, action) => {
       state.similarMovies = action.payload
+    },
+    SET_SEARCHED_MOVIES: (state, action) => {
+      state.searchedMovies = action.payload
     }
   }
 })
 
-export const { SET_POPULAR_MOVIES, SET_TOP_RATED_MOVIES, SET_MOVIE_TRAILER_INFO, SET_MOVIE_DETAIL, SET_MOVIE_CREDITS, SET_SIMILAR_MOVIES } = movieSlice.actions
+export const {
+  SET_POPULAR_MOVIES,
+  SET_TOP_RATED_MOVIES,
+  SET_MOVIE_TRAILER_INFO,
+  SET_MOVIE_DETAIL,
+  SET_MOVIE_CREDITS,
+  SET_SIMILAR_MOVIES,
+  SET_SEARCHED_MOVIES
+} = movieSlice.actions
 export default movieSlice.reducer

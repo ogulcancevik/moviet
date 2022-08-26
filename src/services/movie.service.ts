@@ -36,11 +36,19 @@ const fetchSmilarMovies = async (movieId: number) => {
   return await responseHandler(response)
 }
 
+const fetchSearchedMovie = async (query: string) => {
+  const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+  const response = await fetch(url)
+  const { results } = await responseHandler(response)
+  return await results
+}
+
 export const movieService = {
   fetchPopularMovies,
   fetchMovieTrailerInfo,
   fetchTopRatedMovies,
   fetchMovieDetail,
   fetchMovieCredits,
-  fetchSmilarMovies
+  fetchSmilarMovies,
+  fetchSearchedMovie
 }
