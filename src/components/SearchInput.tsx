@@ -1,10 +1,14 @@
 import { getSearchedMovies } from '@/app/modules/movie/movie.actions'
 import { useAppDispatch } from '@/app/store'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const SearchInput: React.FC = () => {
   const dispatch = useAppDispatch()
   const [query, setQuery] = useState<string>('')
+  const searchInput = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    searchInput.current?.focus()
+  }, [])
   const handleSearch = async () => {
     if (!query) return
     await dispatch(getSearchedMovies(query))
@@ -14,6 +18,7 @@ const SearchInput: React.FC = () => {
     <div className="flex justify-center animate__animated animate__fadeInDown">
       <div className="mt-20 flex w-3/12">
         <input
+          ref={searchInput}
           value={query}
           placeholder="Search a movie"
           onChange={(e) => setQuery(e.target.value)}
