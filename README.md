@@ -6,10 +6,10 @@ If u want to see this app u can visit https://moviet.netlify.app/
 ## Tech Used
 
 - `ReactJS`
+- `Typescript`
 - `React Router`
 - `Tailwind CSS`
 - `Redux`
-- `Typescript`
 
 ## Features
 
