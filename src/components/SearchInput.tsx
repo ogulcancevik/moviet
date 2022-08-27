@@ -12,11 +12,10 @@ const SearchInput: React.FC = () => {
   const handleSearch = async () => {
     if (!query) return
     await dispatch(getSearchedMovies(query))
-    setQuery('')
   }
   return (
     <div className="flex justify-center animate__animated animate__fadeInDown">
-      <div className="mt-20 flex w-3/12">
+      <div className="mt-32 flex w-96 sm:w-72">
         <input
           ref={searchInput}
           value={query}
@@ -28,11 +27,11 @@ const SearchInput: React.FC = () => {
             }
           }}
           type="text"
-          className="outline-0 border border-white rounded-l-full border-r-0 bg-black bg-opacity-20 w-full h-12 pl-6"
+          className="outline-0 border border-white rounded-l-full border-r-0 bg-black bg-opacity-20 w-full h-12 pl-6 sm:text-xs"
         />
         <div
           onClick={handleSearch}
-          className="cursor-pointer bg-custom-red hover:bg-white hover:text-custom-red transition-all h-12 rounded-r-full border-white border border-l-0 items-center flex w-20 justify-center"
+          className="cursor-pointer bg-custom-red hover:bg-white hover:text-custom-red transition-all h-12 rounded-r-full border-white border border-l-0 items-center flex w-20 justify-center sm:text-xs"
         >
           Search
         </div>

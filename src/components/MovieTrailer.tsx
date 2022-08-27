@@ -14,7 +14,7 @@ const MovieTrailer: React.FC = () => {
   return (
  <>
     <div className="w-screen h-screen px-36 pb-36">
-      <div className='text-3xl font-semibold uppercase'>Offical Trailer</div>
+      <div className='text-3xl font-semibold uppercase my-12'>Offical Trailer</div>
       <iframe
         width="100%"
         height="100%"

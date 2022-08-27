@@ -71,11 +71,11 @@ interface IDetailGenresProps {
 export const DetailGenres: React.FC<IDetailGenresProps> = (props) => {
   const { genres } = props
   return (
-    <div className="flex gap-3 mt-6">
+    <div className="flex justify-start gap-5 md:hidden mt-4">
       {genres.map((g, key) => {
         return (
           <div
-            className="border rounded-full py-1.5 px-3.5 animate__animated animate__fadeInDown"
+            className="border rounded-full h-10 w-max px-3 flex justify-center items-center animate__animated animate__fadeInDown"
             key={key}
           >
             {g.name}

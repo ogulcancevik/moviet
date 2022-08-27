@@ -12,15 +12,15 @@ const CollectionCard: React.FC<ICollectionCardProps> = (props) => {
     window.location.href = `/movie/${id}`
   }
   return (
-    <div className="grid grid-cols-6 mt-5">
+    <div className="grid grid-cols-6 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 mt-5 gap-10 m-9">
       {collection.map((movie) => {
         return (
           <div
-            className="flex flex-col justify-center items-center mb-5 animate__animated animate__zoomIn  cursor-pointer"
+            className="flex flex-col justify-center items-center mb-5 animate__animated animate__zoomIn cursor-pointer"
             key={movie.id}
             onClick={() => redirectMovieDetail(movie)}
           >
-            <div className="w-72">
+            <div>
               <img
                 className="rounded-2xl"
                 src={'https://image.tmdb.org/t/p/original/' + movie.poster_path}

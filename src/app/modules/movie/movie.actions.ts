@@ -41,7 +41,6 @@ export const getMovieDetail = (movieId : number) => async (dispatch: any) => {
 export const getSearchedMovies = (query : string) => async (dispatch: AppDispatch) => {
   const results = await movieService.fetchSearchedMovie(query)
   if (!results.length) {
-    console.log('film yok aq')
     return
   }
   dispatch(SET_SEARCHED_MOVIES(results))

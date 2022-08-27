@@ -12,7 +12,7 @@ const SearchedMovies: React.FC<ISearchedMoviesProps> = (props) => {
   }
   return (
     <div
-      className="grid grid-cols-6 gap-4 m-12"
+      className="grid grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 m-12"
       style={{
         height: 'calc(100vh - 8rem)'
       }}
