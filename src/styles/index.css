@@ -14,22 +14,19 @@ body {
 }
 
 .swiper-shadow {
-  -webkit-box-shadow: inset -1px -92px 25px 1px rgba(0,0,0,0.8);
-  -moz-box-shadow: inset -1px -92px 25px 1px rgba(0,0,0,0.8);
-  box-shadow: inset -1px -92px 25px 1px rgba(0,0,0,0.8);
+  -webkit-box-shadow: inset -1px -92px 25px 1px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: inset -1px -92px 25px 1px rgba(0, 0, 0, 0.8);
+  box-shadow: inset -1px -92px 25px 1px rgba(0, 0, 0, 0.8);
 }
 
-.my-node-enter {
-  opacity: 0;
+.fadeIn {
+  animation: fadeInAnimation 0.3s ease-in-out;
 }
-.my-node-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
-}
-.my-node-exit {
-  opacity: 1;
-}
-.my-node-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

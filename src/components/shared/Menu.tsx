@@ -9,7 +9,7 @@ const Menu: React.FC = () => {
     dispatch(TOGGLE_MENU())
   }
   return (
-    <div className="bg-black text-white absolute left-0 right-0 bottom-0 top-0 flex justify-center items-center z-50 w-1/2">
+    <div className="bg-black text-white absolute left-0 right-0 bottom-0 top-0 flex justify-center items-center z-50 w-1/2 fadeIn">
       <div className='flex flex-col text-3xl gap-4' onClick={toggleMenu}>
         {links.map((link, key) => {
           return (
